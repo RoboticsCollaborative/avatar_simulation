@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>avatar_description</name>
+  <name>avatar_gripper_description</name>
   <version>0.0.0</version>
   <description>The avatar_gripper_description package</description>
 

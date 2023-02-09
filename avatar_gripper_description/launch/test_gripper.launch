@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 
 <launch>
-  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_description)/urdf/avatar_gripper_3f.xacro" />  
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro" />  
   
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_description)/rviz/test_gripper.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_gripper_description)/rviz/test_gripper.rviz" required="true" />
 </launch>
