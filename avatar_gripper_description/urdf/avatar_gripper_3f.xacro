@@ -2,12 +2,13 @@
 <robot name="avatar_gripper_3f_model" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find avatar_gripper_description)/urdf/avatar_gripper_3f_macro.xacro" />
   <xacro:avatar_gripper_3f prefix="right"/>
-  <!-- <xacro:macro name="attach_gripper" params="connected_to:='' arm_id:='panda' rpy:='0 0 0' xyz:='0 0 0'">
+  <xacro:macro name="attach_gripper" params="connected_to:='' arm_id='panda' gripper_prefix:='' rpy:='0 0 0' xyz:='0 0 0'">
     <xacro:unless value="${connected_to == ''}">
       <joint name="${arm_id}_gripper_joint" type="fixed">
         <parent link="${connected_to}" />
-        <child link="${arm_id}_hand" />
+        <child link="${gripper_prefix}_gripper_base" />
         <origin xyz="${xyz}" rpy="${rpy}" />
       </joint>
-    </xacro:unless>     -->
+    </xacro:unless>    
+  </xacro:macro>
 </robot>
