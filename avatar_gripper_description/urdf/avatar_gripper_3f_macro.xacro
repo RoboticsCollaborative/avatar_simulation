@@ -276,7 +276,7 @@
       <child link="${prefix}_index_fingertip"/>
       <axis xyz="0 0 1"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_index_flex_motor_joint" offsite="0" multiplier="0.6"/>
+      <mimic joint="${prefix}_index_flex_motor_joint" offsite="0" multiplier="0.4"/>
     </joint>
   </xacro:macro>
   <xacro:macro name="middle_knuckle_joint" params="prefix">
