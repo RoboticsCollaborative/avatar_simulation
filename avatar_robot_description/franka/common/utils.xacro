@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Load inertial properties. Property is implicitly passed to macros. -->
-  <xacro:property name="inertial_config" value="$(find franka_description)/robots/common/inertial.yaml"/>
+  <xacro:property name="inertial_config" value="$(find avatar_robot_description)/franka/common/inertial.yaml"/>
   <xacro:property name="inertial" value="${xacro.load_yaml(inertial_config)}"/>
 
   <!-- ============================================================== -->
@@ -45,7 +45,7 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://franka_description/meshes/collision/${name}.stl" />
+          <mesh filename="package://avatar_robot_description/meshes/collision/${name}.stl" />
         </geometry>
       </collision>
       <xacro:if value="${gazebo}">
