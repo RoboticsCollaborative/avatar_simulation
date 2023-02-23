@@ -30,6 +30,8 @@ An example flow to generate a STL mesh file for a body:
 2. click file->save as->select stl format-> options
 3. In the pop-up window, change the Output coordinate system at bottom to the coordinate frame you just created.
 
+You can then use the mesh file within the `<geometry>` tag under visual.
+
 As for **collision** geometry, the most straightforward way is to use the visual mesh file directly, however it is not recommended to do so as the number of triangles are oftentimes too many. A raw exported stl mesh file could contain 30000 triangles while it's normally recommended to have less 1000 triangles for each link. 
 
 There are two ways here to reduce the number of triangles. The first is to create a simpler CAD model in the begining, with only necessary geometry information (no holes, no curves, etc). The second is to use [MeshLab](https://www.meshlab.net/) to remesh the file and reduce the number of triangles. A common tool to use is under `Filters -> Remeshing, Simplification and Reconstruction -> Simplification: Quadric Edge Collapse Decimation`. This would half the number of triangles. You can run it a few times until you hit the balance between simplicity and detailedness. 
