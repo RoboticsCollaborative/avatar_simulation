@@ -5,10 +5,10 @@ For a more comprehensive tutorial on URDF, here is a very good reference: http:/
 
 Given a CAD file of a robot/part, what information do we need from it to create the URDF? 
 1. The mesh file for visualization and possibly for collision checking too (defined in Link), 
-2. the relative positions and orientations between consecutive links (defined in Joint). 
+2. the relative positions and orientations between adjacent links (defined in Joint). 
 
 Since URDF describes a robot in a kinematic tree strucutre (unlike SDF). Every robot starts with a base **link**
-as the root and grows into a kinematic tree. Each rigid body can be represented as a link. Every two consecutive links are connected by a **joint**. The two main joint
+as the root and grows into a kinematic tree. Each rigid body can be represented as a link. Every two adjacent links are connected by a **joint**. The two main joint
 types supported by URDF are prismatic joint and revolute joint. So it's helpful to start by expressing the robot/part as 
 a kinematic tree and identify what are the links and joints.
 
