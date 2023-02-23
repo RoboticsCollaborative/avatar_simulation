@@ -25,6 +25,8 @@ We recorded two rosbags stored under data folder. To play the trajectory and vis
  
 `roslaunch avatar_robot_description test_single_arm.launch real_robot:=true`
 
+![](https://github.com/RoboticsCollaborative/avatar_simulation/blob/master/avatar_robot_sim.gif)
+
 ### URDF
 
 The `avatar_gripper_3f.urdf` is automatically generated from `avatar_gripper_3f.xacro` with [xacro](http://wiki.ros.org/xacro).
