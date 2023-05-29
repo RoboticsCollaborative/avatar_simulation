@@ -10,6 +10,8 @@
     <xacro:arg name="tcp_rpy" default="0 0 0" />
     <!-- Is the robot being simulated in gazebo?" -->
     <xacro:arg name="gazebo" default="false" />
+    <!-- For avatar gripper only-->
+    <xacro:arg name="mimic" default="true" />
 
     <xacro:include filename="$(find avatar_robot_description)/franka/common/utils.xacro" />
     <xacro:include filename="$(find avatar_robot_description)/franka/common/franka_arm.xacro" />

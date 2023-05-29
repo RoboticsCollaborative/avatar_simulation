@@ -5,8 +5,9 @@
   <arg name="publish_rate" default="30" />
   <arg name="robot" default="panda" doc="choose your robot. Possible values: [panda, fr3]"/>
   <arg name="real_robot" default="false"/>
+  <arg name="mimic" default="true"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_robot_description)/franka/$(arg robot)/$(arg robot).urdf.xacro arm_id:=panda hand:=$(arg load_gripper)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_robot_description)/franka/$(arg robot)/$(arg robot).urdf.xacro arm_id:=panda hand:=$(arg load_gripper) mimic:=$(arg mimic)"/>
 
   <!-- <node name="robot_joint_state_publisher" pkg="franka_visualization" type="robot_joint_state_publisher" output="screen">
     <rosparam command="load" file="$(find franka_visualization)/config/robot_settings.yaml" />
@@ -20,6 +21,9 @@
   </node>
 
   <node unless="$(arg real_robot)" name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap unless="$(arg mimic)" from="joint_states" to="/avatar_joint_states"/>
+  </node>
+  <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
   <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find avatar_robot_description)/rviz/franka_visualization.rviz -f $(arg robot)_link0"/>
 </launch>

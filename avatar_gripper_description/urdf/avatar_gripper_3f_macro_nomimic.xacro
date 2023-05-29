@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+  <xacro:macro name="gripper_base_link" params="prefix">
+    <link name="${prefix}_gripper_base">
+      <inertial>
+        <mass value="2.0"/>
+        <inertia ixx="7.11E-3" ixy="0.0" ixz="0.0" iyy="7.11E-3" iyz="0.0" izz="7.11E-3"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/gripper_base.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.7 1"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_base_link" params="prefix">
+    <link name="${prefix}_thumb_base">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_base_extra.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_base_extra.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_knuckle_link" params="prefix">
+    <link name="${prefix}_thumb_knuckle">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_knuckle.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_knuckle.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_finger_link" params="prefix">
+    <link name="${prefix}_thumb_finger">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_fingertip.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_fingertip.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+  
+  <xacro:macro name="index_base_connector" params="prefix">
+    <link name="${prefix}_index_base_connector">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_base_connector.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="index_knuckle" params="prefix">
+    <link name="${prefix}_index_knuckle">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="index_fingertip" params="prefix">
+    <link name="${prefix}_index_fingertip">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="middle_knuckle" params="prefix">
+    <link name="${prefix}_middle_knuckle">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="middle_fingertip" params="prefix">
+    <link name="${prefix}_middle_fingertip">
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_swivel_link" params="prefix">
+    <link name="${prefix}_thumb_swivel_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/thumb_swivel_link.obj"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <!-- joints  -->
+  <xacro:macro name="thumb_knuckle_joint" params="prefix">
+    <joint name="${prefix}_thumb_knuckle_joint" type="revolute">
+      <origin xyz="0 0 0" rpy="0 2.75 0"/>
+      <parent link="${prefix}_thumb_base"/>
+      <child link="${prefix}_thumb_knuckle"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-1.0" upper="0.4" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_finger_joint" params="prefix">
+    <joint name="${prefix}_thumb_finger_joint" type="revolute">
+      <origin xyz="0.04568 0 0.01106" rpy="0 0.57 0"/>
+      <parent link="${prefix}_thumb_knuckle"/>
+      <child link="${prefix}_thumb_finger"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_base_swivel_joint" params="prefix">
+    <joint name="${prefix}_thumb_base_swivel_joint" type="fixed">
+      <origin xyz="-0.03742 0 0.05089" rpy="0 0 0"/>
+      <parent link="${prefix}_thumb_swivel_link"/>
+      <child link="${prefix}_thumb_base"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_swivel_joint" params="prefix">
+    <joint name="${prefix}_thumb_swivel_joint" type="revolute">
+      <origin xyz="0 0 0.0173" rpy="0 0 0"/>
+      <parent link="${prefix}_index_base_connector"/>
+      <child link="${prefix}_thumb_swivel_link"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="0" upper="1.7" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="index_knuckle_joint" params="prefix">
+    <joint name="${prefix}_index_knuckle_joint" type="revolute">
+      <origin xyz="-0.021564878 0.008545 -0.0024358" rpy="1.94428593 1.07478656 1.98996937"/>
+      <parent link="${prefix}_index_base_connector"/>
+      <child link="${prefix}_index_knuckle"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="index_fingertip_joint" params="prefix">
+    <joint name="${prefix}_index_fingertip_joint" type="revolute">
+      <origin xyz="0.0353829 -0.02780 0" rpy="0 0 -0.35"/>
+      <parent link="${prefix}_index_knuckle"/>
+      <child link="${prefix}_index_fingertip"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+  <xacro:macro name="middle_knuckle_joint" params="prefix">
+    <joint name="${prefix}_middle_knuckle_joint" type="revolute">
+      <origin xyz="0.02156 0.008545 -0.0024358" rpy="1.19730672 1.07478656 1.15162329"/>
+      <parent link="${prefix}_index_base_connector"/>
+      <child link="${prefix}_middle_knuckle"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="middle_fingertip_joint" params="prefix">
+    <joint name="${prefix}_middle_fingertip_joint" type="revolute">
+      <origin xyz="0.0353829 -0.02780 0" rpy="0 0 -0.35"/>
+      <parent link="${prefix}_middle_knuckle"/>
+      <child link="${prefix}_middle_fingertip"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="gripper_base_joint" params="prefix">
+    <joint name="${prefix}_gripper_base_joint" type="fixed">
+      <origin xyz="0.00736 0.139 -0.066017" rpy="1.57 0 0"/>
+      <parent link="${prefix}_gripper_base"/>
+      <child link="${prefix}_index_base_connector"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- actuator links -->
+  <xacro:macro name="motor_link" params="prefix actuation">
+    <link name="${prefix}_${actuation}_motor">
+      <inertial>
+        <mass value="0.25"/>
+        <inertia ixx="1.463E-04" ixy="0" ixz="0" iyy="1.463E-04" iyz="0" izz="1.463E-04"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.02" length="0.01"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <!-- actuator joints -->
+  <xacro:macro name="index_flex_motor_joint" params="prefix">
+    <joint name="${prefix}_index_flex_motor_joint" type="revolute">
+      <origin xyz="0 -0.3 0" rpy="0 0 0"/>
+      <parent link="${prefix}_gripper_base"/>
+      <child link="${prefix}_index_flex_motor"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.3" upper="-0.08" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_flex_motor_joint" params="prefix">
+    <joint name="${prefix}_thumb_flex_motor_joint" type="revolute">
+      <origin xyz="-0.05 -0.3 0" rpy="0 0 0"/>
+      <parent link="${prefix}_gripper_base"/>
+      <child link="${prefix}_thumb_flex_motor"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.3" upper="-0.08" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="thumb_swivel_motor_joint" params="prefix">
+    <joint name="${prefix}_thumb_swivel_motor_joint" type="revolute">
+      <origin xyz="-0.1 -0.3 0" rpy="0 0 0"/>
+      <parent link="${prefix}_gripper_base"/>
+      <child link="${prefix}_thumb_swivel_motor"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-2.3" upper="-0.05" velocity="2.0" effort="1000" />
+    </joint>
+  </xacro:macro>
+
+  
+  <xacro:macro name="avatar_gripper_3f" params="prefix">
+    <xacro:thumb_base_link prefix="${prefix}"/>
+    <xacro:thumb_knuckle_link prefix="${prefix}"/>
+    <xacro:thumb_knuckle_joint prefix="${prefix}"/>
+    <xacro:thumb_finger_link prefix="${prefix}"/>
+    <xacro:thumb_finger_joint prefix="${prefix}"/>
+    <xacro:thumb_swivel_link prefix="${prefix}"/>
+    <xacro:thumb_swivel_joint prefix="${prefix}"/>
+    <xacro:thumb_base_swivel_joint prefix="${prefix}"/>
+    <xacro:index_base_connector prefix="${prefix}"/>
+    <xacro:index_knuckle prefix="${prefix}"/>
+    <xacro:index_knuckle_joint prefix="${prefix}"/>
+    <xacro:index_fingertip prefix="${prefix}"/>
+    <xacro:index_fingertip_joint prefix="${prefix}"/>
+    <xacro:middle_knuckle prefix="${prefix}"/>
+    <xacro:middle_knuckle_joint prefix="${prefix}"/>
+    <xacro:middle_fingertip prefix="${prefix}"/>
+    <xacro:middle_fingertip_joint prefix="${prefix}"/>
+    <xacro:gripper_base_link prefix="${prefix}"/>
+    <xacro:gripper_base_joint prefix="${prefix}"/>
+
+    <xacro:motor_link prefix="${prefix}" actuation="thumb_flex"/>
+    <xacro:thumb_flex_motor_joint prefix="${prefix}"/>
+    <xacro:motor_link prefix="${prefix}" actuation="thumb_swivel"/>
+    <xacro:thumb_swivel_motor_joint prefix="${prefix}"/>
+    <xacro:motor_link prefix="${prefix}" actuation="index_flex"/>
+    <xacro:index_flex_motor_joint prefix="${prefix}"/>
+  </xacro:macro>
+</robot>
