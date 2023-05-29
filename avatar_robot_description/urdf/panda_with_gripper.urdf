@@ -477,7 +477,7 @@
     <child link="right_thumb_knuckle"/>
     <axis xyz="0 1 0"/>
     <limit effort="1000" lower="-1.0" upper="0.4" velocity="2.0"/>
-    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.28" offsite="0"/>
+    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.28" offset="0"/>
   </joint>
   <link name="right_thumb_finger">
     <inertial>
@@ -506,7 +506,7 @@
     <child link="right_thumb_finger"/>
     <axis xyz="0 1 0"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.24" offsite="0"/>
+    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.24" offset="0"/>
   </joint>
   <link name="right_thumb_swivel_link">
     <visual>
@@ -570,7 +570,7 @@
     <child link="right_index_knuckle"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_flex_motor_joint" multiplier="0.4016" offsite="0"/>
+    <mimic joint="right_index_flex_motor_joint" multiplier="0.4016" offset="0"/>
   </joint>
   <link name="right_index_fingertip">
     <inertial>
@@ -599,7 +599,7 @@
     <child link="right_index_fingertip"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_flex_motor_joint" multiplier="0.4" offsite="0"/>
+    <mimic joint="right_index_flex_motor_joint" multiplier="0.4" offset="0"/>
   </joint>
   <link name="right_middle_knuckle">
     <inertial>
