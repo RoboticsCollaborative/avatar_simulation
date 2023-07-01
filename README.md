@@ -30,6 +30,12 @@ The URDF with mimic tag is used by default, to use non-mimic version, run
 roslaunch avatar_gripper_description test_single_arm.launch mimic:=false
 ```
 
+**Dual arm**: 
+
+```
+roslaunch avatar_robot_description test_dual_panda.launch mimic:=false
+```
+
 
 ### Play robot trajectory from rosbag
 
@@ -38,9 +44,17 @@ We recorded two rosbags stored under data folder. To play the trajectory and vis
 ```
 rosbag play [path/to/the/bag] --clock
 ```
- 
+
+**Single arm**:
+
 ```
 roslaunch avatar_robot_description test_single_arm.launch real_robot:=true
+```
+
+**Dual arm**: 
+
+```
+roslaunch avatar_robot_description test_dual_panda.launch mimic:=false real_robot:=true
 ```
 
 ![](https://github.com/RoboticsCollaborative/avatar_simulation/blob/master/avatar_robot_sim.gif)

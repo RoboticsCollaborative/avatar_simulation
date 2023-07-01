@@ -49,7 +49,7 @@
 				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
 			</geometry>
 			<material name="Mat Black 1">
-				<color rgba  <!-- <xacro:avatar_gripper_3f prefix="$(arg pref)"/>; -->="0.1 0.1 0.1 1.0"/>
+				<color rgba="0.1 0.1 0.1 1.0"/>
 			</material>
 		</visual>
 
