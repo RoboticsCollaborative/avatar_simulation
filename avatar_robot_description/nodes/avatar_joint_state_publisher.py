@@ -28,13 +28,22 @@ class JointStatePublisher(object):
   def joint_state_callback(self, msg):
     if (not self.initialized):
       # find the index of the actively actuated joint
-      self.motor_joint_idx['right_thumb_flex_motor_joint'] = msg.name.index('right_thumb_flex_motor_joint')
-      self.motor_joint_idx['right_thumb_swivel_motor_joint'] = msg.name.index('right_thumb_swivel_motor_joint')
-      self.motor_joint_idx['right_index_flex_motor_joint'] = msg.name.index('right_index_flex_motor_joint')
-      self.motor_joint_idx['left_thumb_flex_motor_joint'] = msg.name.index('left_thumb_flex_motor_joint')
-      self.motor_joint_idx['left_thumb_swivel_motor_joint'] = msg.name.index('left_thumb_swivel_motor_joint')
-      self.motor_joint_idx['left_index_flex_motor_joint'] = msg.name.index('left_index_flex_motor_joint')
-      self.initialized = True
+      try:
+        if 'right_thumb_flex_motor_joint' in msg.name:
+          self.motor_joint_idx['right_thumb_flex_motor_joint'] = msg.name.index('right_thumb_flex_motor_joint')
+        if 'right_thumb_swivel_motor_joint' in msg.name:
+          self.motor_joint_idx['right_thumb_swivel_motor_joint'] = msg.name.index('right_thumb_swivel_motor_joint')
+        if 'right_index_flex_motor_joint' in msg.name:
+          self.motor_joint_idx['right_index_flex_motor_joint'] = msg.name.index('right_index_flex_motor_joint')
+        if 'left_thumb_flex_motor_joint' in msg.name:
+          self.motor_joint_idx['left_thumb_flex_motor_joint'] = msg.name.index('left_thumb_flex_motor_joint')
+        if 'left_thumb_swivel_motor_joint' in msg.name:
+          self.motor_joint_idx['left_thumb_swivel_motor_joint'] = msg.name.index('left_thumb_swivel_motor_joint')
+        if 'left_index_flex_motor_joint' in msg.name:
+          self.motor_joint_idx['left_index_flex_motor_joint'] = msg.name.index('left_index_flex_motor_joint')
+        self.initialized = True
+      except ValueError as e:
+        print(e)
 
     # actively actuated joint 
     act_joint_state = msg
