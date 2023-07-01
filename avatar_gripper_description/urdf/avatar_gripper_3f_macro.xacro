@@ -11,12 +11,18 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/gripper_base.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/gripper_base.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.7 1"/>
         </material>
       </visual>
+      <collision>
+        <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.1 0.1 0.06"/>
+        </geometry>
+      </collision>
     </link>
   </xacro:macro>
 
@@ -24,12 +30,12 @@
     <link name="${prefix}_thumb_base">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -38,7 +44,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.STL"/>
         </geometry>
       </collision>
     </link>
@@ -48,12 +54,12 @@
     <link name="${prefix}_thumb_knuckle">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -62,7 +68,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.STL"/>
         </geometry>
       </collision>
     </link>
@@ -72,12 +78,12 @@
     <link name="${prefix}_thumb_finger">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -86,7 +92,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.STL"/>
         </geometry>
       </collision>
     </link>
@@ -94,10 +100,14 @@
   
   <xacro:macro name="index_base_connector" params="prefix">
     <link name="${prefix}_index_base_connector">
+      <inertial>
+        <mass value="0.02"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_base_connector.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_base_connector.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -110,12 +120,12 @@
     <link name="${prefix}_index_knuckle">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -124,7 +134,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.STL"/>
         </geometry>
       </collision>
     </link>
@@ -134,12 +144,12 @@
     <link name="${prefix}_index_fingertip">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -148,7 +158,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.STL"/>
         </geometry>
       </collision>
     </link>
@@ -158,12 +168,12 @@
     <link name="${prefix}_middle_knuckle">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -172,7 +182,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.STL"/>
         </geometry>
       </collision>
     </link>
@@ -182,12 +192,12 @@
     <link name="${prefix}_middle_fingertip">
       <inertial>
         <mass value="0.5"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -196,7 +206,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.STL"/>
         </geometry>
       </collision>
     </link>
@@ -204,15 +214,25 @@
 
   <xacro:macro name="thumb_swivel_link" params="prefix">
     <link name="${prefix}_thumb_swivel_link">
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
+      </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_swivel_link.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_swivel_link.STL"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_swivel_link.STL"/>
+        </geometry>
+      </collision>
     </link>
   </xacro:macro>
 

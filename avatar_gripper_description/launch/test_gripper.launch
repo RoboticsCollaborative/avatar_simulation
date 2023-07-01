@@ -1,32 +1,15 @@
 <?xml version="1.0" ?>
 <launch>
   <arg name="mimic" default="true"/>
+  <arg name="prefix" default="right"/>
 
-  <group ns="left">
-    <!-- <arg name="pref_l" default="left"/> -->
-    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro mimic:=$(arg mimic) pref:=$(arg pref_l)" /> -->
-    <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro mimic:=$(arg mimic) pref:='left'" />
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f_example.xacro mimic:=$(arg mimic) prefix:=$(arg prefix)" />
 
-    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
-      <remap unless="$(arg mimic)" from="joint_states" to="/avatar_joint_states"/>
-    </node>
-    <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap unless="$(arg mimic)" from="joint_states" to="/avatar_joint_states"/>
+  </node>
+  <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
 
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_gripper_description)/rviz/test_gripper_left.rviz" required="true" />
-  </group>
-
-    <group ns="right">
-    <!-- <arg name="pref_r" default="right"/> -->
-    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro mimic:=$(arg mimic) pref:=$(arg pref_r)" /> -->
-    <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro mimic:=$(arg mimic) pref:='right'" />
-
-    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
-      <remap unless="$(arg mimic)" from="joint_states" to="/avatar_joint_states"/>
-    </node>
-    <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
-
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_gripper_description)/rviz/test_gripper_right.rviz" required="true" />
-  </group>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_gripper_description)/rviz/test_gripper_right.rviz" required="true" />
 </launch>
