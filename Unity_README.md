@@ -1,6 +1,6 @@
 ## How to use this model in Unity
 ### Import URDF from ROS
-If you haven't import the URDF from ROS into Unity, run the following command on the ROS machine:
+If you haven't imported the URDF from ROS into Unity, run the following command on the ROS machine:
 ```
 roslaunch avatar_robot_description publish_description_avatar.launch
 ```
