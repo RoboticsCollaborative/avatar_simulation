@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+
+	<!-- box shaped table as base for the 2 Pandas -->
+	<!-- prop in meters -->
+
+  <xacro:property name="height_base" value="0.52"/> 
+  <xacro:property name="width_base" value="0.51"/>
+  <xacro:property name="length_base" value="0.565"/>
+  <xacro:property name="dist_arms" value="0.54"/>
+  <xacro:property name="edge_thickness" value="0.03" />
+
+	<link name="base">
+		<!-- Box edge visualization -->
+		<!-- Top face -->
+		<visual>
+			<origin xyz="${length_base/2-edge_thickness/2} 0 ${-height_base/2 + edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${width_base} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${length_base/2-edge_thickness/2} 0 ${height_base/2 - edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${width_base} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+				
+		<visual>
+			<origin xyz="${length_base/2-edge_thickness/2} ${-width_base/2 + edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${length_base/2-edge_thickness/2} ${width_base/2 - edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba  <!-- <xacro:avatar_gripper_3f prefix="$(arg pref)"/>; -->="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+
+		<!-- Bottom face -->
+		<visual>
+			<origin xyz="${-length_base/2+edge_thickness/2} 0 ${-height_base/2 + edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${width_base} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${-length_base/2+edge_thickness/2} 0 ${height_base/2 - edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${width_base} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+				
+		<visual>
+			<origin xyz="${-length_base/2+edge_thickness/2} ${-width_base/2 + edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${-length_base/2+edge_thickness/2} ${width_base/2 - edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<!-- Side faces -->
+
+		<!-- right -->
+		<visual>
+			<origin xyz="0 ${width_base/2-edge_thickness/2} ${-height_base/2 + edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${length_base} ${edge_thickness} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="0 ${width_base/2-edge_thickness/2} ${height_base/2 - edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${length_base} ${edge_thickness} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+				
+		<visual>
+			<origin xyz="${-length_base/2 + edge_thickness/2} ${width_base/2-edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${length_base/2 - edge_thickness/2} ${width_base/2-edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<!-- left -->
+		<visual>
+			<origin xyz="0 ${-width_base/2+edge_thickness/2} ${-height_base/2 + edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${length_base} ${edge_thickness} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="0 ${-width_base/2+edge_thickness/2} ${height_base/2 - edge_thickness/2}" rpy="0 0 0"/>
+			<geometry>
+				<box size="${length_base} ${edge_thickness} ${edge_thickness}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+				
+		<visual>
+			<origin xyz="${-length_base/2 + edge_thickness/2} ${-width_base/2+edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<visual>
+			<origin xyz="${length_base/2 - edge_thickness/2} ${-width_base/2+edge_thickness/2} 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${edge_thickness} ${edge_thickness} ${height_base}" />
+			</geometry>
+			<material name="Mat Black 1">
+				<color rgba="0.1 0.1 0.1 1.0"/>
+			</material>
+		</visual>
+
+		<!-- Solid box collision -->
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="${length_base} ${width_base} ${height_base}" />
+			</geometry>
+		</collision>
+	</link>
+
+
+  <xacro:property name="heigth_support" value="0.02"/> 
+  <xacro:property name="width_support" value="0.721"/>
+  <xacro:property name="length_support" value="0.155"/>
+
+  <link name="support">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${length_support} ${width_support} ${heigth_support}" />
+      </geometry>
+      <material name="Mat Black 2">
+        <color rgba="0.15 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${length_support} ${width_support} ${heigth_support}" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <xacro:property name="heigth_cam_support" value="0.675"/> 
+  <xacro:property name="length_cam_support" value="0.155"/>
+
+	<link name="cam_support">
+
+    <visual>
+      <origin xyz="${-length_cam_support/2+edge_thickness/2} 0 ${heigth_cam_support/2-edge_thickness/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${edge_thickness} ${edge_thickness} ${heigth_cam_support}" />
+      </geometry>
+      <material name="Mat Black 2">
+        <color rgba="0.15 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+
+    <visual>
+      <origin xyz="${+length_cam_support/2-edge_thickness/2} 0 ${heigth_cam_support/2-edge_thickness/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${edge_thickness} ${edge_thickness} ${heigth_cam_support}" />
+      </geometry>
+      <material name="Mat Black 2">
+        <color rgba="0.15 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+
+    <visual>
+      <origin xyz="0 0 ${heigth_cam_support-edge_thickness/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${length_cam_support} ${edge_thickness} ${edge_thickness}" />
+      </geometry>
+      <material name="Mat Black 2">
+        <color rgba="0.15 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${length_cam_support} ${edge_thickness} ${heigth_cam_support}" />
+      </geometry>
+    </collision>
+  </link>
+
+	<link name="camera">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://avatar_robot_description/meshes/visual/Digital_Camera_USB.stl"/>
+			</geometry>
+			<material name="">
+				<color rgba="0.3 0.3 0.3 1"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://avatar_robot_description/meshes/visual/Digital_Camera_USB.stl"/>
+			</geometry>
+		</collision>
+	</link>
+	
+	<link name="screen">
+    <visual>
+      <origin xyz="-0.0001 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.015 0.235 0.38" />
+      </geometry>
+      <material name="Mat Black 2">
+        <color rgba="0.15 0.15 0.15 1.0"/>
+      </material>
+    </visual>
+
+		<visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.015 0.205 0.35" />
+      </geometry>
+      <material name="">
+        <color rgba="0.70 0.70 0.70 0.5"/>
+      </material>
+    </visual>
+
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.015 0.225 0.37" />
+			</geometry>
+		</collision>
+	</link>
+	
+	<!-- joints -->
+
+  <xacro:property name="support_dyssymetry" value="-0.018"/>
+  <xacro:property name="cam_support_dyssymetry" value="0.0505"/>
+
+
+  <joint name="fixed_joint" type="fixed">
+    <parent link="base"/>
+    <child link="support"/>
+    <origin xyz="${length_base/2} ${support_dyssymetry} ${height_base/2+heigth_support/2}" rpy="0 0 0"/>
+  </joint>
+  
+  <joint name="fixed_joint_2" type="fixed">
+    <parent link="support"/>
+    <child link="cam_support"/>
+    <origin xyz="0 ${cam_support_dyssymetry} ${heigth_support/2}" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="fixed_joint_3" type="fixed">
+    <parent link="cam_support"/>
+    <child link="camera"/>
+    <origin xyz="0 -0.055 ${heigth_cam_support-0.045}" rpy="0 1.75 0"/>
+  </joint>
+
+  <joint name="fixed_joint_4" type="fixed">
+    <parent link="cam_support"/>
+    <child link="screen"/>
+    <origin xyz="${length_cam_support/2+0.01} -0.055 0.325" rpy="0 0 0"/>
+  </joint>
+
+</robot>

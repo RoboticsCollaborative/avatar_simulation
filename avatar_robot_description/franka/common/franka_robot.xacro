@@ -24,7 +24,7 @@
           arm_id="$(arg arm_id)"
           rpy="0 ${pi} ${-pi/4}"
           connected_to="$(arg arm_id)_link8"
-          gripper_prefix="right"
+          gripper_prefix="left"
        />
     </xacro:if>
   </xacro:macro>

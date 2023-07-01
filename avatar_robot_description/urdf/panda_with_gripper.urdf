@@ -429,7 +429,7 @@
     <parent link="panda_link7"/>
     <child link="panda_link8"/>
   </joint>
-  <link name="right_thumb_base">
+  <link name="left_thumb_base">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -450,7 +450,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="right_thumb_knuckle">
+  <link name="left_thumb_knuckle">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -471,15 +471,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_thumb_knuckle_joint" type="revolute">
+  <joint name="left_thumb_knuckle_joint" type="revolute">
     <origin rpy="0 2.75 0" xyz="0 0 0"/>
-    <parent link="right_thumb_base"/>
-    <child link="right_thumb_knuckle"/>
+    <parent link="left_thumb_base"/>
+    <child link="left_thumb_knuckle"/>
     <axis xyz="0 1 0"/>
     <limit effort="1000" lower="-1.0" upper="0.4" velocity="2.0"/>
-    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.28" offset="0"/>
+    <mimic joint="left_thumb_flex_motor_joint" multiplier="0.28" offset="0"/>
   </joint>
-  <link name="right_thumb_finger">
+  <link name="left_thumb_finger">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -500,15 +500,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_thumb_finger_joint" type="revolute">
+  <joint name="left_thumb_finger_joint" type="revolute">
     <origin rpy="0 0.57 0" xyz="0.04568 0 0.01106"/>
-    <parent link="right_thumb_knuckle"/>
-    <child link="right_thumb_finger"/>
+    <parent link="left_thumb_knuckle"/>
+    <child link="left_thumb_finger"/>
     <axis xyz="0 1 0"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_thumb_flex_motor_joint" multiplier="0.24" offset="0"/>
+    <mimic joint="left_thumb_flex_motor_joint" multiplier="0.24" offset="0"/>
   </joint>
-  <link name="right_thumb_swivel_link">
+  <link name="left_thumb_swivel_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -519,20 +519,20 @@
       </material>
     </visual>
   </link>
-  <joint name="right_thumb_swivel_joint" type="revolute">
+  <joint name="left_thumb_swivel_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0.0173"/>
-    <parent link="right_index_base_connector"/>
-    <child link="right_thumb_swivel_link"/>
+    <parent link="left_index_base_connector"/>
+    <child link="left_thumb_swivel_link"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="0" upper="1.7" velocity="2.0"/>
-    <mimic joint="right_thumb_swivel_motor_joint" multiplier="-0.6075" offset="0.43"/>
+    <mimic joint="left_thumb_swivel_motor_joint" multiplier="-0.6075" offset="0.43"/>
   </joint>
-  <joint name="right_thumb_base_swivel_joint" type="fixed">
+  <joint name="left_thumb_base_swivel_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.03742 0 0.05089"/>
-    <parent link="right_thumb_swivel_link"/>
-    <child link="right_thumb_base"/>
+    <parent link="left_thumb_swivel_link"/>
+    <child link="left_thumb_base"/>
   </joint>
-  <link name="right_index_base_connector">
+  <link name="left_index_base_connector">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -543,7 +543,7 @@
       </material>
     </visual>
   </link>
-  <link name="right_index_knuckle">
+  <link name="left_index_knuckle">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -564,15 +564,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_index_knuckle_joint" type="revolute">
+  <joint name="left_index_knuckle_joint" type="revolute">
     <origin rpy="1.94428593 1.07478656 1.98996937" xyz="-0.021564878 0.008545 -0.0024358"/>
-    <parent link="right_index_base_connector"/>
-    <child link="right_index_knuckle"/>
+    <parent link="left_index_base_connector"/>
+    <child link="left_index_knuckle"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_flex_motor_joint" multiplier="0.4016" offset="0"/>
+    <mimic joint="left_index_flex_motor_joint" multiplier="0.4016" offset="0"/>
   </joint>
-  <link name="right_index_fingertip">
+  <link name="left_index_fingertip">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -593,15 +593,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_index_fingertip_joint" type="revolute">
+  <joint name="left_index_fingertip_joint" type="revolute">
     <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
-    <parent link="right_index_knuckle"/>
-    <child link="right_index_fingertip"/>
+    <parent link="left_index_knuckle"/>
+    <child link="left_index_fingertip"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_flex_motor_joint" multiplier="0.4" offset="0"/>
+    <mimic joint="left_index_flex_motor_joint" multiplier="0.4" offset="0"/>
   </joint>
-  <link name="right_middle_knuckle">
+  <link name="left_middle_knuckle">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -622,15 +622,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_middle_knuckle_joint" type="revolute">
+  <joint name="left_middle_knuckle_joint" type="revolute">
     <origin rpy="1.19730672 1.07478656 1.15162329" xyz="0.02156 0.008545 -0.0024358"/>
-    <parent link="right_index_base_connector"/>
-    <child link="right_middle_knuckle"/>
+    <parent link="left_index_base_connector"/>
+    <child link="left_middle_knuckle"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_knuckle_joint" multiplier="1" offset="0"/>
+    <mimic joint="left_index_knuckle_joint" multiplier="1" offset="0"/>
   </joint>
-  <link name="right_middle_fingertip">
+  <link name="left_middle_fingertip">
     <inertial>
       <mass value="0.5"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
@@ -651,15 +651,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_middle_fingertip_joint" type="revolute">
+  <joint name="left_middle_fingertip_joint" type="revolute">
     <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
-    <parent link="right_middle_knuckle"/>
-    <child link="right_middle_fingertip"/>
+    <parent link="left_middle_knuckle"/>
+    <child link="left_middle_fingertip"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-0.8" upper="0" velocity="2.0"/>
-    <mimic joint="right_index_fingertip_joint" multiplier="1" offset="0"/>
+    <mimic joint="left_index_fingertip_joint" multiplier="1" offset="0"/>
   </joint>
-  <link name="right_gripper_base">
+  <link name="left_gripper_base">
     <inertial>
       <mass value="2.0"/>
       <inertia ixx="7.11E-3" ixy="0.0" ixz="0.0" iyy="7.11E-3" iyz="0.0" izz="7.11E-3"/>
@@ -674,12 +674,12 @@
       </material>
     </visual>
   </link>
-  <joint name="right_gripper_base_joint" type="fixed">
+  <joint name="left_gripper_base_joint" type="fixed">
     <origin rpy="1.57 0 0" xyz="0.00736 0.139 -0.066017"/>
-    <parent link="right_gripper_base"/>
-    <child link="right_index_base_connector"/>
+    <parent link="left_gripper_base"/>
+    <child link="left_index_base_connector"/>
   </joint>
-  <link name="right_thumb_flex_motor">
+  <link name="left_thumb_flex_motor">
     <inertial>
       <mass value="0.25"/>
       <inertia ixx="1.463E-04" ixy="0" ixz="0" iyy="1.463E-04" iyz="0" izz="1.463E-04"/>
@@ -691,14 +691,14 @@
       </geometry>
     </visual>
   </link>
-  <joint name="right_thumb_flex_motor_joint" type="revolute">
+  <joint name="left_thumb_flex_motor_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.05 -0.3 0"/>
-    <parent link="right_gripper_base"/>
-    <child link="right_thumb_flex_motor"/>
+    <parent link="left_gripper_base"/>
+    <child link="left_thumb_flex_motor"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-2.3" upper="-0.08" velocity="2.0"/>
   </joint>
-  <link name="right_thumb_swivel_motor">
+  <link name="left_thumb_swivel_motor">
     <inertial>
       <mass value="0.25"/>
       <inertia ixx="1.463E-04" ixy="0" ixz="0" iyy="1.463E-04" iyz="0" izz="1.463E-04"/>
@@ -710,14 +710,14 @@
       </geometry>
     </visual>
   </link>
-  <joint name="right_thumb_swivel_motor_joint" type="revolute">
+  <joint name="left_thumb_swivel_motor_joint" type="revolute">
     <origin rpy="0 0 0" xyz="-0.1 -0.3 0"/>
-    <parent link="right_gripper_base"/>
-    <child link="right_thumb_swivel_motor"/>
+    <parent link="left_gripper_base"/>
+    <child link="left_thumb_swivel_motor"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-2.3" upper="-0.05" velocity="2.0"/>
   </joint>
-  <link name="right_index_flex_motor">
+  <link name="left_index_flex_motor">
     <inertial>
       <mass value="0.25"/>
       <inertia ixx="1.463E-04" ixy="0" ixz="0" iyy="1.463E-04" iyz="0" izz="1.463E-04"/>
@@ -729,16 +729,16 @@
       </geometry>
     </visual>
   </link>
-  <joint name="right_index_flex_motor_joint" type="revolute">
+  <joint name="left_index_flex_motor_joint" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.3 0"/>
-    <parent link="right_gripper_base"/>
-    <child link="right_index_flex_motor"/>
+    <parent link="left_gripper_base"/>
+    <child link="left_index_flex_motor"/>
     <axis xyz="0 0 1"/>
     <limit effort="1000" lower="-2.3" upper="-0.08" velocity="2.0"/>
   </joint>
   <joint name="panda_gripper_joint" type="fixed">
     <parent link="panda_link8"/>
-    <child link="right_gripper_base"/>
+    <child link="left_gripper_base"/>
     <origin rpy="0 3.141592653589793 -0.7853981633974483" xyz="0 0 0"/>
   </joint>
 </robot>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<launch>
+  <arg name="mimic" default="false"/>
+  <arg name="real_robot" default="false"/>
+  <arg name="publish_rate" default="30"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_robot_description)/franka/dual_panda/dual_panda_example.urdf.xacro mimic:=$(arg mimic)"/>
+  
+  <node if="$(arg real_robot)" name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
+    <param name="rate" value="$(arg publish_rate)" />
+    <rosparam param="source_list">[/pti_interface_right/joint_states, /right_gripper_joint_states, /pti_interface_left/joint_states, /left_gripper_joint_states]</rosparam>
+  </node>
+
+  <node unless="$(arg real_robot)" name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap unless="$(arg mimic)" from="joint_states" to="/avatar_joint_states"/>
+  </node>
+  <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_robot_description)/rviz/dual_panda_example.rviz" required="true"/>
+</launch>
+

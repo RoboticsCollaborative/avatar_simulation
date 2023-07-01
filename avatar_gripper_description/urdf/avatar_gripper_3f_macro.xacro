@@ -11,7 +11,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/gripper_base.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/gripper_base.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.7 1"/>
@@ -29,7 +29,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_base_extra.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -38,7 +38,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_base_extra.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_base_extra.obj"/>
         </geometry>
       </collision>
     </link>
@@ -53,7 +53,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -62,7 +62,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.obj"/>
         </geometry>
       </collision>
     </link>
@@ -77,7 +77,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -86,7 +86,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.obj"/>
         </geometry>
       </collision>
     </link>
@@ -97,7 +97,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_base_connector.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_base_connector.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -115,7 +115,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -124,7 +124,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
         </geometry>
       </collision>
     </link>
@@ -139,7 +139,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -148,7 +148,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
         </geometry>
       </collision>
     </link>
@@ -163,7 +163,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -172,7 +172,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_knuckle.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
         </geometry>
       </collision>
     </link>
@@ -187,7 +187,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -196,7 +196,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/index_fingertip.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
         </geometry>
       </collision>
     </link>
@@ -207,7 +207,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/thumb_swivel_link.obj"/>
+          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_swivel_link.obj"/>
         </geometry>
         <material name="">
           <color rgba="0.9 0.9 0.9 1"/>
@@ -249,7 +249,12 @@
 
   <xacro:macro name="thumb_swivel_joint" params="prefix">
     <joint name="${prefix}_thumb_swivel_joint" type="revolute">
-      <origin xyz="0 0 0.0173" rpy="0 0 0"/>
+      <xacro:if value="${prefix == 'left'}">
+        <origin xyz="0 0 0.0173" rpy="0 0 0.7853"/>
+      </xacro:if>
+      <xacro:if value="${prefix == 'right'}">
+        <origin xyz="0 0 0.0173" rpy="0 0 0"/>
+      </xacro:if>
       <parent link="${prefix}_index_base_connector"/>
       <child link="${prefix}_thumb_swivel_link"/>
       <axis xyz="0 0 1"/>
@@ -260,7 +265,12 @@
 
   <xacro:macro name="index_knuckle_joint" params="prefix">
     <joint name="${prefix}_index_knuckle_joint" type="revolute">
-      <origin xyz="-0.021564878 0.008545 -0.0024358" rpy="1.94428593 1.07478656 1.98996937"/>
+      <xacro:if value="${prefix == 'left'}">
+        <origin xyz="+0.021564878 0.008545 -0.0024358" rpy="1.19730672 1.07478656 1.15162329"/>
+      </xacro:if>
+      <xacro:if value="${prefix == 'right'}">
+        <origin xyz="-0.021564878 0.008545 -0.0024358" rpy="1.94428593 1.07478656 1.98996937"/>
+      </xacro:if>
       <parent link="${prefix}_index_base_connector"/>
       <child link="${prefix}_index_knuckle"/>
       <axis xyz="0 0 1"/>
@@ -281,7 +291,12 @@
   </xacro:macro>
   <xacro:macro name="middle_knuckle_joint" params="prefix">
     <joint name="${prefix}_middle_knuckle_joint" type="revolute">
-      <origin xyz="0.02156 0.008545 -0.0024358" rpy="1.19730672 1.07478656 1.15162329"/>
+      <xacro:if value="${prefix == 'left'}">
+        <origin xyz="-0.02156 0.008545 -0.0024358" rpy="1.94428593 1.07478656 1.98996937"/>
+      </xacro:if>
+      <xacro:if value="${prefix == 'right'}">
+        <origin xyz="0.02156 0.008545 -0.0024358" rpy="1.19730672 1.07478656 1.15162329"/>
+      </xacro:if>
       <parent link="${prefix}_index_base_connector"/>
       <child link="${prefix}_middle_knuckle"/>
       <axis xyz="0 0 1"/>
@@ -303,7 +318,12 @@
 
   <xacro:macro name="gripper_base_joint" params="prefix">
     <joint name="${prefix}_gripper_base_joint" type="fixed">
-      <origin xyz="0.00736 0.139 -0.066017" rpy="1.57 0 0"/>
+      <xacro:if value="${prefix == 'left'}">
+        <origin xyz="-0.00736 0.139 -0.066017" rpy="1.57 0 0"/>
+      </xacro:if>
+      <xacro:if value="${prefix == 'right'}">
+        <origin xyz="0.00736 0.139 -0.066017" rpy="1.57 0 0"/>
+      </xacro:if>
       <parent link="${prefix}_gripper_base"/>
       <child link="${prefix}_index_base_connector"/>
     </joint>
