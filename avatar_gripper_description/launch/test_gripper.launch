@@ -13,4 +13,6 @@
   <node unless="$(arg mimic)" name="avatar_joint_state_publisher" pkg="avatar_robot_description" type="avatar_joint_state_publisher.py" output="screen"/>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_gripper_description)/rviz/test_gripper_right.rviz" required="true" />
+  <!-- Save urdf -->
+  <node name="urdf_saver" pkg="avatar_gripper_description" type="generate_gripper_urdf.sh" output="screen" args="$(find avatar_gripper_description)"/>
 </launch>

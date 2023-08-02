@@ -21,6 +21,6 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find avatar_robot_description)/rviz/dual_panda_example.rviz" required="true"/>
 
   <!-- Save the urdf -->
-  <node name="urdf_saver" pkg="avatar_robot_description" type="generate_dual_arm_urdf.sh" output="screen"/>
+  <node name="urdf_saver" pkg="avatar_robot_description" type="generate_dual_arm_urdf.sh" output="screen" args="$(find avatar_robot_description)"/>
 </launch>
 
