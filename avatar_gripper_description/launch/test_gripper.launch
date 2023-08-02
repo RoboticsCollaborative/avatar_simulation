@@ -2,8 +2,9 @@
 <launch>
   <arg name="mimic" default="true"/>
   <arg name="prefix" default="right"/>
+  <arg name="motor_base_attach_to" default="right_gripper_base"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f_example.xacro mimic:=$(arg mimic) prefix:=$(arg prefix)" />
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_gripper_description)/urdf/avatar_gripper_3f_example.xacro mimic:=$(arg mimic) prefix:=$(arg prefix) motor_base_attach_to:=$(arg motor_base_attach_to)" />
 
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">

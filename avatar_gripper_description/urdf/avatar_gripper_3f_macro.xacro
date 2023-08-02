@@ -244,7 +244,9 @@
       <child link="${prefix}_thumb_knuckle"/>
       <axis xyz="0 1 0"/>
       <limit lower="-1.0" upper="0.4" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_thumb_flex_motor_joint" offset="0" multiplier="0.28"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_thumb_flex_motor_joint" offset="0" multiplier="0.28"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -255,7 +257,9 @@
       <child link="${prefix}_thumb_finger"/>
       <axis xyz="0 1 0"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_thumb_flex_motor_joint" offset="0" multiplier="0.24"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_thumb_flex_motor_joint" offset="0" multiplier="0.24"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -279,7 +283,9 @@
       <child link="${prefix}_thumb_swivel_link"/>
       <axis xyz="0 0 1"/>
       <limit lower="0" upper="1.7" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_thumb_swivel_motor_joint" offset="0.43" multiplier="-0.6075"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_thumb_swivel_motor_joint" offset="0.43" multiplier="-0.6075"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -295,7 +301,9 @@
       <child link="${prefix}_index_knuckle"/>
       <axis xyz="0 0 1"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_index_flex_motor_joint" offset="0" multiplier="0.4016"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_index_flex_motor_joint" offset="0" multiplier="0.4016"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -306,7 +314,9 @@
       <child link="${prefix}_index_fingertip"/>
       <axis xyz="0 0 1"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_index_flex_motor_joint" offset="0" multiplier="0.4"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_index_flex_motor_joint" offset="0" multiplier="0.4"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
   <xacro:macro name="middle_knuckle_joint" params="prefix">
@@ -321,7 +331,9 @@
       <child link="${prefix}_middle_knuckle"/>
       <axis xyz="0 0 1"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_index_knuckle_joint" offset="0" multiplier="1"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_index_knuckle_joint" offset="0" multiplier="1"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -332,7 +344,9 @@
       <child link="${prefix}_middle_fingertip"/>
       <axis xyz="0 0 1"/>
       <limit lower="-0.8" upper="0" velocity="2.0" effort="1000" />
-      <mimic joint="${prefix}_index_fingertip_joint" offset="0" multiplier="1"/>
+      <xacro:if value="$(arg mimic)">
+        <mimic joint="${prefix}_index_fingertip_joint" offset="0" multiplier="1"/>
+      </xacro:if>
     </joint>
   </xacro:macro>
 
@@ -366,30 +380,30 @@
   </xacro:macro>
 
   <!-- actuator joints -->
-  <xacro:macro name="index_flex_motor_joint" params="prefix">
+  <xacro:macro name="index_flex_motor_joint" params="prefix motor_base_attach_to">
     <joint name="${prefix}_index_flex_motor_joint" type="revolute">
-      <origin xyz="0 -0.3 0" rpy="0 0 0"/>
-      <parent link="${prefix}_gripper_base"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <parent link="${motor_base_attach_to}"/>
       <child link="${prefix}_index_flex_motor"/>
       <axis xyz="0 0 1"/>
       <limit lower="-2.3" upper="-0.08" velocity="2.0" effort="1000" />
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="thumb_flex_motor_joint" params="prefix">
+  <xacro:macro name="thumb_flex_motor_joint" params="prefix motor_base_attach_to">
     <joint name="${prefix}_thumb_flex_motor_joint" type="revolute">
-      <origin xyz="-0.05 -0.3 0" rpy="0 0 0"/>
-      <parent link="${prefix}_gripper_base"/>
+      <origin xyz="-0.05 0.0 0.0" rpy="0 0 0"/>
+      <parent link="${motor_base_attach_to}"/>
       <child link="${prefix}_thumb_flex_motor"/>
       <axis xyz="0 0 1"/>
       <limit lower="-2.3" upper="-0.08" velocity="2.0" effort="1000" />
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="thumb_swivel_motor_joint" params="prefix">
+  <xacro:macro name="thumb_swivel_motor_joint" params="prefix motor_base_attach_to">
     <joint name="${prefix}_thumb_swivel_motor_joint" type="revolute">
-      <origin xyz="-0.1 -0.3 0" rpy="0 0 0"/>
-      <parent link="${prefix}_gripper_base"/>
+      <origin xyz="-0.1 0.0 0.0" rpy="0 0 0"/>
+      <parent link="${motor_base_attach_to}"/>
       <child link="${prefix}_thumb_swivel_motor"/>
       <axis xyz="0 0 1"/>
       <limit lower="-2.3" upper="-0.05" velocity="2.0" effort="1000" />
@@ -397,7 +411,7 @@
   </xacro:macro>
 
   
-  <xacro:macro name="avatar_gripper_3f" params="prefix">
+  <xacro:macro name="avatar_gripper_3f" params="prefix motor_base_attach_to">
     <xacro:thumb_base_link prefix="${prefix}"/>
     <xacro:thumb_knuckle_link prefix="${prefix}"/>
     <xacro:thumb_knuckle_joint prefix="${prefix}"/>
@@ -419,10 +433,10 @@
     <xacro:gripper_base_joint prefix="${prefix}"/>
 
     <xacro:motor_link prefix="${prefix}" actuation="thumb_flex"/>
-    <xacro:thumb_flex_motor_joint prefix="${prefix}"/>
+    <xacro:thumb_flex_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
     <xacro:motor_link prefix="${prefix}" actuation="thumb_swivel"/>
-    <xacro:thumb_swivel_motor_joint prefix="${prefix}"/>
+    <xacro:thumb_swivel_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
     <xacro:motor_link prefix="${prefix}" actuation="index_flex"/>
-    <xacro:index_flex_motor_joint prefix="${prefix}"/>
+    <xacro:index_flex_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
   </xacro:macro>
 </robot>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="avatar">
+
+  <xacro:arg name="arm_id_1" default="right_panda" />
+  <xacro:arg name="arm_id_2" default="left_panda" />
+  <xacro:arg name="pref_1" default="right" />
+  <xacro:arg name="pref_2" default="left" />
+  <xacro:arg name="gazebo" default="true"/>
+  <xacro:arg name="right_motor_base_attach_to" default="right_gripper_motor_base"/>
+  <xacro:arg name="left_motor_base_attach_to" default="left_gripper_motor_base"/>
+
+  <xacro:include filename="$(find avatar_robot_description)/franka/common/franka_arm.xacro"/>
+  <xacro:include filename="$(find avatar_robot_description)/franka/common/base.xacro"/>
+  <xacro:include filename="$(find avatar_gripper_description)/urdf/avatar_gripper_3f.xacro"/>
+
+  <!-- attach gripper base -->
+  <xacro:macro name="attach_gripper_motor_base" params="prefix">
+	  <link name="${prefix}_gripper_motor_base"/>
+    <joint name="${prefix}_gripper_motor_base_joint" type="fixed">
+      <parent link="${prefix}_panda_link0"/>
+      <child link="${prefix}_gripper_motor_base"/>
+      <origin xyz="-0.3 0 0" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+  
+  <!-- right arm with gripper -->
+  <xacro:franka_arm arm_id="$(arg arm_id_1)" connected_to="support" gazebo="$(arg gazebo)" xyz="${length_support*0.45} ${-dist_arms/2} ${heigth_support/2}" rpy='0 0 0' safety_distance="0.03" joint_limits="${xacro.load_yaml('$(find avatar_robot_description)/franka/panda/joint_limits.yaml')}"/>
+  <xacro:avatar_gripper_3f prefix="$(arg pref_1)" motor_base_attach_to="$(arg right_motor_base_attach_to)"/>
+  <xacro:attach_gripper connected_to="$(arg arm_id_1)_link8" arm_id="$(arg arm_id_1)" gripper_prefix='right' rpy="0 ${pi} ${-pi/4}" xyz='0 0 0'/>
+  <xacro:attach_gripper_motor_base prefix="right"/>
+  <!-- left arm with gripper -->
+  <xacro:franka_arm arm_id="$(arg arm_id_2)" connected_to="support"  gazebo="$(arg gazebo)" xyz="${length_support*0.45} ${dist_arms/2} ${heigth_support/2}" rpy='0 0 0' safety_distance="0.03" joint_limits="${xacro.load_yaml('$(find avatar_robot_description)/franka/panda/joint_limits.yaml')}"/>
+  <xacro:avatar_gripper_3f prefix="$(arg pref_2)" motor_base_attach_to="$(arg left_motor_base_attach_to)"/>
+  <xacro:attach_gripper connected_to="$(arg arm_id_2)_link8" arm_id="$(arg arm_id_2)" gripper_prefix='left' rpy="0 ${pi} ${-pi/4}" xyz='0 0 0'/>
+  <xacro:attach_gripper_motor_base prefix="left"/>
+</robot>

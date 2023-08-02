@@ -2,15 +2,11 @@
 <robot name="avatar_gripper_3f_model" xmlns:xacro="http://ros.org/wiki/xacro">  
   <xacro:arg name="mimic" default="true"/>
   <xacro:arg name="prefix" default="right"/>
+  <xacro:arg name="motor_base_attach_to" default="right_gripper_base"/>
 
-  <xacro:if value="$(arg mimic)">
-    <xacro:include filename="$(find avatar_gripper_description)/urdf/avatar_gripper_3f_macro.xacro" />
-  </xacro:if>
-  <xacro:unless value="$(arg mimic)">
-    <xacro:include filename="$(find avatar_gripper_description)/urdf/avatar_gripper_3f_macro_nomimic.xacro" />
-  </xacro:unless>
+  <xacro:include filename="$(find avatar_gripper_description)/urdf/avatar_gripper_3f_macro.xacro" />
 
-  <xacro:avatar_gripper_3f prefix="$(arg prefix)"/>
+  <xacro:avatar_gripper_3f prefix="$(arg prefix)" motor_base_attach_to="$(arg motor_base_attach_to)"/>
   <xacro:macro name="attach_gripper" params="connected_to:='' arm_id='panda' gripper_prefix:='' rpy:='0 0 0' xyz:='0 0 0'">
     <xacro:unless value="${connected_to == ''}">
       <joint name="${arm_id}_gripper_joint" type="fixed">

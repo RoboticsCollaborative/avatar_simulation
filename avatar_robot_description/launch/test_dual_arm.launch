@@ -5,7 +5,7 @@
   <arg name="real_robot" default="false"/>
   <arg name="publish_rate" default="30"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_robot_description)/franka/dual_panda/dual_panda_example.urdf.xacro mimic:=$(arg mimic)"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(find avatar_robot_description)/urdf/dual_panda_with_gripper.urdf.xacro mimic:=$(arg mimic)"/>
   
   <node if="$(arg real_robot)" name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
     <param name="rate" value="$(arg publish_rate)" />
