@@ -33,7 +33,7 @@ roslaunch avatar_gripper_description test_single_arm.launch mimic:=false
 **Dual arm**: 
 
 ```
-roslaunch avatar_robot_description test_dual_panda.launch mimic:=false
+roslaunch avatar_robot_description test_dual_arm.launch mimic:=false
 ```
 
 
@@ -54,11 +54,11 @@ roslaunch avatar_robot_description test_single_arm.launch real_robot:=true
 **Dual arm**: 
 
 ```
-roslaunch avatar_robot_description test_dual_panda.launch mimic:=false real_robot:=true
+roslaunch avatar_robot_description test_dual_arm.launch mimic:=false real_robot:=true
 ```
 
 ![](https://github.com/RoboticsCollaborative/avatar_simulation/blob/master/avatar_robot_sim.gif)
 
 ### URDF
 
-The `avatar_gripper_3f.urdf` is automatically generated from `avatar_gripper_3f.xacro` with [xacro](http://wiki.ros.org/xacro).
+The URDF file will be automatically generated under the `urdf` folder.
