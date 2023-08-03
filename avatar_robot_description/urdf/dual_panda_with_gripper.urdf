@@ -577,18 +577,30 @@
       <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0   0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_base_extra.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_base_extra.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.02"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_base_extra.STL"/>
+        <cylinder length="0.036" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.0020000000000000018"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.038"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
@@ -600,21 +612,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.0235 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_knuckle.STL"/>
+        <cylinder length="0.047" radius="0.009"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.047 0 0"/>
+      <geometry>
+        <sphere radius="0.009"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.009"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_thumb_knuckle_joint" type="revolute">
-    <origin rpy="0 2.75 0" xyz="0 0 0"/>
+    <origin rpy="0 3.064 0" xyz="0 0 0"/>
     <parent link="right_thumb_base"/>
     <child link="right_thumb_knuckle"/>
     <axis xyz="0 1 0"/>
@@ -629,21 +653,34 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_fingertip.STL"/>
+        <cylinder length="0.041" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0405 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0005000000000000004 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_thumb_finger_joint" type="revolute">
-    <origin rpy="0 0.57 0" xyz="0.04568 0 0.01106"/>
+    <!-- <origin xyz="0.04568 0 0.01106" rpy="0 0.57 0"/> -->
+    <origin rpy="0 -0.12813170079773184 0" xyz="0.047 0 0"/>
     <parent link="right_thumb_knuckle"/>
     <child link="right_thumb_finger"/>
     <axis xyz="0 1 0"/>
@@ -658,7 +695,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_swivel_link.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_swivel_link.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -667,7 +704,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_swivel_link.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/thumb_swivel_link.obj"/>
       </geometry>
     </collision>
   </link>
@@ -680,7 +717,7 @@
     <mimic joint="right_thumb_swivel_motor_joint" multiplier="-0.6075" offset="0.43"/>
   </joint>
   <joint name="right_thumb_base_swivel_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.03742 0 0.05089"/>
+    <origin rpy="0 -0.5235987755982988 0" xyz="-0.03742 0 0.05089"/>
     <parent link="right_thumb_swivel_link"/>
     <child link="right_thumb_base"/>
   </joint>
@@ -692,7 +729,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_base_connector.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_base_connector.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -701,7 +738,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_base_connector.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_base_connector.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -716,21 +753,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.STL"/>
+        <cylinder length="0.04" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_index_knuckle_joint" type="revolute">
-    <origin rpy="1.94428593 1.07478656 1.98996937" xyz="-0.021564878 0.008545 -0.0024358"/>
+    <origin rpy="-2.3053 1.3087 -2.2008" xyz="-0.021564878 0.008545 -0.0024358"/>
     <parent link="right_index_base_connector"/>
     <child link="right_index_knuckle"/>
     <axis xyz="0 0 1"/>
@@ -745,21 +794,51 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.013 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.STL"/>
+        <cylinder length="0.026" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.5707963267948966 -0.67" xyz="0.038 -0.009 0"/>
+      <geometry>
+        <cylinder length="0.023" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04701394915762976 -0.016141338850920436 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.028986050842370235 -0.001858661149079563 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_index_fingertip_joint" type="revolute">
-    <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
+    <origin rpy="0 0 0.313" xyz="0.04499 0 0"/>
     <parent link="right_index_knuckle"/>
     <child link="right_index_fingertip"/>
     <axis xyz="0 0 1"/>
@@ -774,21 +853,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_knuckle.STL"/>
+        <cylinder length="0.04" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_middle_knuckle_joint" type="revolute">
-    <origin rpy="1.19730672 1.07478656 1.15162329" xyz="0.02156 0.008545 -0.0024358"/>
+    <origin rpy="-0.8363 1.3087 -0.9408" xyz="0.02156 0.008545 -0.0024358"/>
     <parent link="right_index_base_connector"/>
     <child link="right_middle_knuckle"/>
     <axis xyz="0 0 1"/>
@@ -803,21 +894,51 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.013 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/index_fingertip.STL"/>
+        <cylinder length="0.026" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.5707963267948966 -0.67" xyz="0.038 -0.009 0"/>
+      <geometry>
+        <cylinder length="0.023" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04701394915762976 -0.016141338850920436 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.028986050842370235 -0.001858661149079563 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="right_middle_fingertip_joint" type="revolute">
-    <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
+    <origin rpy="0 0 0.313" xyz="0.04499 0 0"/>
     <parent link="right_middle_knuckle"/>
     <child link="right_middle_fingertip"/>
     <axis xyz="0 0 1"/>
@@ -832,18 +953,18 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/right/gripper_base.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/right/gripper_base.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.7 1"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.03"/>
-      <geometry>
-        <box size="0.1 0.1 0.06"/>
-      </geometry>
-    </collision>
+    <!-- <collision>
+        <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.1 0.1 0.06"/>
+        </geometry>
+      </collision> -->
   </link>
   <joint name="right_gripper_base_joint" type="fixed">
     <origin rpy="1.57 0 0" xyz="0.00736 0.139 -0.066017"/>
@@ -1214,18 +1335,30 @@
       <inertia ixx="4E-5" ixy="0.0" ixz="0.0" iyy="4E-5" iyz="0.0" izz="4E-5"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0   0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_base_extra.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_base_extra.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.02"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_base_extra.STL"/>
+        <cylinder length="0.036" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.0020000000000000018"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0 -0.038"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
@@ -1237,21 +1370,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.0235 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_knuckle.STL"/>
+        <cylinder length="0.047" radius="0.009"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.047 0 0"/>
+      <geometry>
+        <sphere radius="0.009"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.009"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_thumb_knuckle_joint" type="revolute">
-    <origin rpy="0 2.75 0" xyz="0 0 0"/>
+    <origin rpy="0 3.064 0" xyz="0 0 0"/>
     <parent link="left_thumb_base"/>
     <child link="left_thumb_knuckle"/>
     <axis xyz="0 1 0"/>
@@ -1266,21 +1411,34 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_fingertip.STL"/>
+        <cylinder length="0.041" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0405 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0005000000000000004 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_thumb_finger_joint" type="revolute">
-    <origin rpy="0 0.57 0" xyz="0.04568 0 0.01106"/>
+    <!-- <origin xyz="0.04568 0 0.01106" rpy="0 0.57 0"/> -->
+    <origin rpy="0 -0.12813170079773184 0" xyz="0.047 0 0"/>
     <parent link="left_thumb_knuckle"/>
     <child link="left_thumb_finger"/>
     <axis xyz="0 1 0"/>
@@ -1295,7 +1453,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_swivel_link.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_swivel_link.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -1304,7 +1462,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_swivel_link.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/thumb_swivel_link.obj"/>
       </geometry>
     </collision>
   </link>
@@ -1317,7 +1475,7 @@
     <mimic joint="left_thumb_swivel_motor_joint" multiplier="-0.6075" offset="0.43"/>
   </joint>
   <joint name="left_thumb_base_swivel_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.03742 0 0.05089"/>
+    <origin rpy="0 -0.5235987755982988 0" xyz="-0.03742 0 0.05089"/>
     <parent link="left_thumb_swivel_link"/>
     <child link="left_thumb_base"/>
   </joint>
@@ -1329,7 +1487,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_base_connector.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_base_connector.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -1338,7 +1496,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_base_connector.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_base_connector.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
@@ -1353,21 +1511,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.STL"/>
+        <cylinder length="0.04" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_index_knuckle_joint" type="revolute">
-    <origin rpy="1.19730672 1.07478656 1.15162329" xyz="+0.021564878 0.008545 -0.0024358"/>
+    <origin rpy="-0.8363 1.3087 -0.9408" xyz="0.02156 0.008545 -0.0024358"/>
     <parent link="left_index_base_connector"/>
     <child link="left_index_knuckle"/>
     <axis xyz="0 0 1"/>
@@ -1382,21 +1552,51 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.013 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.STL"/>
+        <cylinder length="0.026" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.5707963267948966 -0.67" xyz="0.038 -0.009 0"/>
+      <geometry>
+        <cylinder length="0.023" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04701394915762976 -0.016141338850920436 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.028986050842370235 -0.001858661149079563 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_index_fingertip_joint" type="revolute">
-    <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
+    <origin rpy="0 0 0.313" xyz="0.04499 0 0"/>
     <parent link="left_index_knuckle"/>
     <child link="left_index_fingertip"/>
     <axis xyz="0 0 1"/>
@@ -1411,21 +1611,33 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.02 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_knuckle.STL"/>
+        <cylinder length="0.04" radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.01"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_middle_knuckle_joint" type="revolute">
-    <origin rpy="1.94428593 1.07478656 1.98996937" xyz="-0.02156 0.008545 -0.0024358"/>
+    <origin rpy="-2.3053 1.3087 -2.2008" xyz="-0.021564878 0.008545 -0.0024358"/>
     <parent link="left_index_base_connector"/>
     <child link="left_middle_knuckle"/>
     <axis xyz="0 0 1"/>
@@ -1440,21 +1652,51 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.9 1"/>
       </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 1.5707963267948966 0" xyz="0.013 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/index_fingertip.STL"/>
+        <cylinder length="0.026" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.026 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.5707963267948966 -0.67" xyz="0.038 -0.009 0"/>
+      <geometry>
+        <cylinder length="0.023" radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.04701394915762976 -0.016141338850920436 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.028986050842370235 -0.001858661149079563 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
       </geometry>
     </collision>
   </link>
   <joint name="left_middle_fingertip_joint" type="revolute">
-    <origin rpy="0 0 -0.35" xyz="0.0353829 -0.02780 0"/>
+    <origin rpy="0 0 0.313" xyz="0.04499 0 0"/>
     <parent link="left_middle_knuckle"/>
     <child link="left_middle_fingertip"/>
     <axis xyz="0 0 1"/>
@@ -1469,18 +1711,18 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://avatar_gripper_description/meshes/left/gripper_base.STL"/>
+        <mesh filename="package://avatar_gripper_description/meshes/left/gripper_base.obj"/>
       </geometry>
       <material name="">
         <color rgba="0.9 0.9 0.7 1"/>
       </material>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.03"/>
-      <geometry>
-        <box size="0.1 0.1 0.06"/>
-      </geometry>
-    </collision>
+    <!-- <collision>
+        <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.1 0.1 0.06"/>
+        </geometry>
+      </collision> -->
   </link>
   <joint name="left_gripper_base_joint" type="fixed">
     <origin rpy="1.57 0 0" xyz="-0.00736 0.139 -0.066017"/>
