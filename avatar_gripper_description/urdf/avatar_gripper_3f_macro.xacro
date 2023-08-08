@@ -61,12 +61,6 @@
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
-      <!-- <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_knuckle.obj"/>
-        </geometry>
-      </collision> -->
       <xacro:collision_capsule_custom radius="0.009" length="0.047" xyz="0.0235 0 0" direction="x 0"/>
     </link>
   </xacro:macro>
@@ -86,12 +80,6 @@
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
-      <!-- <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_fingertip.obj"/>
-        </geometry>
-      </collision> -->
       <xacro:collision_capsule_custom radius="0.008" length="0.041" xyz="0.020 0 0" direction="x 0"/>
     </link>
   </xacro:macro>
@@ -112,13 +100,16 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="-0.008 0 0.013" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_base_connector.obj"/>
+          <sphere radius="0.015"/>
         </geometry>
-        <material name="">
-          <color rgba="0.9 0.9 0.9 1"/>
-        </material>
+      </collision>
+      <collision>
+        <origin xyz="0.008 0 0.013" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="0.015"/>
+        </geometry>
       </collision>
     </link>
   </xacro:macro>
@@ -177,12 +168,6 @@
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
-      <!-- <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_knuckle.obj"/>
-        </geometry>
-      </collision> -->
       <xacro:collision_capsule_custom radius="0.01" length="0.040" xyz="0.02 0 0" direction="x 0"/>
     </link>
   </xacro:macro>
@@ -202,12 +187,6 @@
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
-      <!-- <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/index_fingertip.obj"/>
-        </geometry>
-      </collision> -->
       <xacro:collision_capsule_custom radius="0.008" length="0.026" xyz="0.013 0 0" direction="x 0"/>
       <xacro:collision_capsule_custom radius="0.008" length="0.023" xyz="0.038 -0.009 0" direction="x -0.67"/>
     </link>
@@ -228,12 +207,6 @@
           <color rgba="0.9 0.9 0.9 1"/>
         </material>
       </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <mesh filename="package://avatar_gripper_description/meshes/${prefix}/thumb_swivel_link.obj"/>
-        </geometry>
-      </collision>
     </link>
   </xacro:macro>
 
