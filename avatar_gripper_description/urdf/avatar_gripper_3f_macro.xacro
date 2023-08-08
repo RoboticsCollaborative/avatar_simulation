@@ -412,6 +412,19 @@
     </joint>
   </xacro:macro>
 
+  <xacro:macro name="gripper_motor_transmission" params="prefix name">
+    <transmission name="${prefix}_${name}_transmission">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${prefix}_${name}">
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}_${name}_actuator">
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+
   
   <xacro:macro name="avatar_gripper_3f" params="prefix motor_base_attach_to">
     <xacro:thumb_base_link prefix="${prefix}"/>
@@ -440,5 +453,16 @@
     <xacro:thumb_swivel_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
     <xacro:motor_link prefix="${prefix}" actuation="index_flex"/>
     <xacro:index_flex_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
+
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_knuckle_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_finger_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_swivel_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="index_knuckle_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="index_fingertip_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="middle_knuckle_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="middle_fingertip_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_flex_motor_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_swivel_motor_joint"/>
+    <xacro:gripper_motor_transmission prefix="${prefix}" name="index_flex_motor_joint"/>
   </xacro:macro>
 </robot>
