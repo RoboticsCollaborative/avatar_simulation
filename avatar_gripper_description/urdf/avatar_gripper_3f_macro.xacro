@@ -454,6 +454,7 @@
     <xacro:motor_link prefix="${prefix}" actuation="index_flex"/>
     <xacro:index_flex_motor_joint prefix="${prefix}" motor_base_attach_to="${motor_base_attach_to}"/>
 
+    <!-- Transmission definitions -->
     <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_knuckle_joint"/>
     <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_finger_joint"/>
     <xacro:gripper_motor_transmission prefix="${prefix}" name="thumb_swivel_joint"/>
